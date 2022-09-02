@@ -1,14 +1,14 @@
 /*-------------------------------- Constants --------------------------------*/
 
 const winningCombos = [
-  [board[0], board[1], board[2]],
-  [board[0], board[3], board[6]],
-  [board[0], board[4], board[8]],
-  [board[1], board[4], board[7]],
-  [board[2], board[4], board[6]],
-  [board[2], board[5], board[8]],
-  [board[3], board[4], board[5]],
-  [board[6], board[7], board[8]]
+  [0, 1, 2],
+  [0, 3, 6],
+  [0, 4, 8],
+  [1, 4, 7],
+  [2, 4, 6],
+  [2, 5, 8],
+  [3, 4, 5],
+  [6, 7, 8]
 ];
 
 
@@ -19,39 +19,34 @@ let board, turn, winner
 
 /*------------------------ Cached Element References ------------------------*/
 
-const squareEls = document.querySelectorAll('.square');
+const squareEls = document.querySelectorAll('section > div');
 
 const messageEl = document.getElementById('message');
 
+
 // /*----------------------------- Event Listeners -----------------------------*/
 
-
-
-
+squareEls.forEach((square) => {
+  square.addEventListener('click', handleClick);
+});
 
 // /*-------------------------------- Functions --------------------------------*/
 
 init();
 
 function init (){
-  
-  board = [null, -1, null, null, 1, null, null, null, null];
-  
+  board = [null, null, null, null, null, null, null, null, null];
   turn = 1; // represents player X
-  
   winner = null;
-  
   render();
   // console.log('sanity check')
 }
 
-
 function render() {
   
-  board.forEach((square, idx) => {
-    
-    squareEls[idx].innerText = square;
-    
+  board.forEach((square, idx) => { 
+    squareEls[idx].innerHTML = square;
+
     if (square === null) {
       squareEls[idx].innerText = ''
     }
@@ -61,25 +56,57 @@ function render() {
     if (square === -1) {
       squareEls[idx].innerText = 'O'
     }
-  });
+  })
 
-  if (winner) {
-    return `Congrats, player ${square}`
+  if (!winner) {
+    messageEl.innerText = `Next player's turn`
   }
-  else if (!winner) {
-    return `Next move, ${square}`
+  else if (winner) {
+    messageEl.innerText =  `Congrats message`
   }
-  else if (winner === T) {
-    return 'TIE GAME!';
+  else {
+    messageEl.innerText =  `It's a tie`
   }
 }
 
+function handleClick(event) {
+  // console.log(event.target);
+  let sqIdx = parseInt(event.target.id.replace('sq', ''));
+  console.log(sqIdx);
 
-
-// function handleClick('click', event){
+  if ((board[sqIdx]) || (winner)) {
+    return `Game over!`
+  }
+  board[sqIdx] = turn;
+  turn *= -1;
   
-// }
+  let winner
 
+  if (winner) {
+    getWinner();
+  }
+}
+
+function getWinner() {
+  let total = 0;
+  // loop through each of the winning combination arrays defined in the winningCombos array
+  for (let i = 0; i < winningCombos.length; i++) {
+    //total up the three board positions using the three indices in the current combo (convert to positive)
+    total = (Math.abs(board[winningCombos[i][0]] + board[winningCombos[i][1]] + board[winningCombos[i][2]]));
+    
+    console.log('total is: ', total)
+    
+    if (total === 3) {
+      return winner = board[winningCombos[i][1]];
+    }
+
+    console.log('winner index is: ', winner)
+  }
+    // if total equals 3, we have a winner!
+
+    // set the winner variable to the board's value at the index specified by the first index of that winning combination's array
+}
+getWinner();
 
 // Step 1 - Define the required variables used to track the state of the game
 
