@@ -119,6 +119,9 @@ function getWinner() {
 
 function meowAppears() {
   surpriseMeow.style = "position: absolute; width: 50%; height: 50%; left: 0px; bottom: 0px; border: 0;";
-  meowSong.volume = .4;
-  meowSong.play()
+  if (typeof meowSong.loop === 'boolean') {
+    meowSong.loop = true;
+    meowSong.volume = .4;
+    meowSong.play()
+  }
 }
