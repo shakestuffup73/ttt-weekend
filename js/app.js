@@ -12,6 +12,7 @@ const winningCombos = [
 ];
 
 
+
 /*---------------------------- Variables (state) ----------------------------*/
 
 let board, turn, winner
@@ -21,6 +22,7 @@ let board, turn, winner
 
 const squareEls = document.querySelectorAll('section > div');
 const messageEl = document.getElementById('message');
+const resetBtnEl = document.getElementById('reset-button');
 
 
 // /*----------------------------- Event Listeners -----------------------------*/
@@ -29,14 +31,26 @@ squareEls.forEach((square) => {
   square.addEventListener('click', handleClick);
 });
 
+resetBtnEl.addEventListener('click', (event) => {
+  init();
+  messageEl.innerText = 'Start Game, Player X'
+});
+
+
+
+
 // /*-------------------------------- Functions --------------------------------*/
 
+
 init();
+
+messageEl.innerText = 'Start Game'
 
 function init (){
   board = [null, null, null, null, null, null, null, null, null];
   turn = 1; // represents player X
   winner = null;
+  
   render();
   // console.log('sanity check')
 }
@@ -56,7 +70,7 @@ function render() {
       squareEls[idx].innerText = 'O'
     }
   })
-  
+
   if (!winner) {
     messageEl.innerText = `Your turn player ${turn === 1 ? 'X' : 'O'}`
   }
@@ -64,22 +78,21 @@ function render() {
     messageEl.innerText =  `Tie game!`
   }
   else {
-    messageEl.innerText =  `Congrats on the win, ${winner === 1 ? 'X' : 'O'}`
+    messageEl.innerText =  `Game over! Congrats on the win, ${winner === 1 ? 'X' : 'O'}`
   }
 }
+
+
 
 function handleClick(event) {
   // console.log(event.target);
   let sqIdx = parseInt(event.target.id.replace('sq', ''));
   
-  if (board[sqIdx] || winner) {
-    return `Game over!`
-  }
   board[sqIdx] = turn
   turn *= -1
-  
+
   winner = getWinner();
-  
+
   render();
 }
 
@@ -99,6 +112,8 @@ function getWinner() {
     return 'T';
   }
 }
+
+
 
 // if total equals 3, we have a winner!
 
