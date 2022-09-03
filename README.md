@@ -4,9 +4,12 @@
 
 Sources:
 
-Google Fonts
+Google Fonts - Indie Flower font-family
 
+Giphy - cat gif
 
+Confetti - confetti.js file from class
 
+Coolors - color palette
 
 ```

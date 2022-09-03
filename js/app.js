@@ -24,6 +24,8 @@ const squareEls = document.querySelectorAll('section > div');
 const messageEl = document.getElementById('message');
 const resetBtnEl = document.getElementById('reset-button');
 
+let surpriseMeow = document.getElementById('meow');
+
 
 // /*----------------------------- Event Listeners -----------------------------*/
 
@@ -34,6 +36,7 @@ squareEls.forEach((square) => {
 resetBtnEl.addEventListener('click', (event) => {
   init();
   messageEl.innerText = 'Start Game, Player X'
+  surpriseMeow.style = "position: absolute; width: 0%; height: 0%; border:0;";
 });
 
 
@@ -79,6 +82,8 @@ function render() {
   }
   else {
     messageEl.innerText =  `Game over! Congrats on the win, ${winner === 1 ? 'X' : 'O'}`
+    surpriseMeow.style = '';
+    meowAppears();
     confetti.start(2000);
   }
 }
@@ -110,4 +115,8 @@ function getWinner() {
   else {
     return 'T';
   }
+}
+
+function meowAppears() {
+  surpriseMeow.style = "position: absolute; width: 50%; height: 50%; left: 0px; bottom: 0px; border:0;";
 }
