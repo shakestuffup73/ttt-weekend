@@ -20,7 +20,6 @@ let board, turn, winner
 /*------------------------ Cached Element References ------------------------*/
 
 const squareEls = document.querySelectorAll('section > div');
-
 const messageEl = document.getElementById('message');
 
 
@@ -46,7 +45,7 @@ function render() {
   
   board.forEach((square, idx) => { 
     squareEls[idx].innerHTML = square;
-
+    
     if (square === null) {
       squareEls[idx].innerText = ''
     }
@@ -57,58 +56,56 @@ function render() {
       squareEls[idx].innerText = 'O'
     }
   })
-
+  
   if (!winner) {
-    messageEl.innerText = `Next player's turn`
+    messageEl.innerText = `Your turn player ${turn === 1 ? 'X' : 'O'}`
   }
-  else if (winner) {
-    messageEl.innerText =  `Congrats message`
+  else if (winner === 'T') {
+    messageEl.innerText =  `Tie game!`
   }
   else {
-    messageEl.innerText =  `It's a tie`
+    messageEl.innerText =  `Congrats on the win, ${winner === 1 ? 'X' : 'O'}`
   }
 }
 
 function handleClick(event) {
   // console.log(event.target);
   let sqIdx = parseInt(event.target.id.replace('sq', ''));
-  console.log(sqIdx);
-
-  if ((board[sqIdx]) || (winner)) {
+  
+  if (board[sqIdx] || winner) {
     return `Game over!`
   }
-  board[sqIdx] = turn;
-  turn *= -1;
+  board[sqIdx] = turn
+  turn *= -1
   
-  let winner
-
-  if (winner) {
-    getWinner();
-  }
+  winner = getWinner();
+  
+  render();
 }
 
 function getWinner() {
-  let total = 0;
   // loop through each of the winning combination arrays defined in the winningCombos array
   for (let i = 0; i < winningCombos.length; i++) {
     //total up the three board positions using the three indices in the current combo (convert to positive)
-    total = (Math.abs(board[winningCombos[i][0]] + board[winningCombos[i][1]] + board[winningCombos[i][2]]));
-    
-    console.log('total is: ', total)
-    
-    if (total === 3) {
-      return winner = board[winningCombos[i][1]];
-    }
-
-    console.log('winner index is: ', winner)
+    if (Math.abs(board[winningCombos[i][0]] + board[winningCombos[i][1]] + board[winningCombos[i][2]]) === 3)
+ 
+    return board[winningCombos[i][0]]
   }
-    // if total equals 3, we have a winner!
 
-    // set the winner variable to the board's value at the index specified by the first index of that winning combination's array
+  if (board.includes(null)) {
+    return null;
+  }
+  else {
+    return 'T';
+  }
 }
-getWinner();
+
+// if total equals 3, we have a winner!
+
+// set the winner variable to the board's value at the index specified by the first index of that winning combination's array
 
 // Step 1 - Define the required variables used to track the state of the game
+
 
 //   1a) Use a variable named `board` to represent the state of the squares on
 //      the board.
