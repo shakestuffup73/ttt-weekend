@@ -12,4 +12,6 @@ Confetti - confetti.js file from class
 
 Coolors - color palette
 
+Passion Pit - Carried Away .mp3
+
 ```

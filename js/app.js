@@ -23,9 +23,8 @@ let board, turn, winner
 const squareEls = document.querySelectorAll('section > div');
 const messageEl = document.getElementById('message');
 const resetBtnEl = document.getElementById('reset-button');
-
-let surpriseMeow = document.getElementById('meow');
-
+const surpriseMeow = document.getElementById('meow');
+const meowSong = new Audio("../audio/carriedaway.mp3");
 
 // /*----------------------------- Event Listeners -----------------------------*/
 
@@ -36,7 +35,8 @@ squareEls.forEach((square) => {
 resetBtnEl.addEventListener('click', (event) => {
   init();
   messageEl.innerText = 'Start Game, Player X'
-  surpriseMeow.style = "position: absolute; width: 0%; height: 0%; border:0;";
+  surpriseMeow.style = "position: absolute; width: 0%; height: 0%; border: 0;";
+  meowSong.volume = 0;
 });
 
 
@@ -49,20 +49,20 @@ init();
 
 messageEl.innerText = 'Start Game';
 
-function init (){
+function init() {
   board = [null, null, null, null, null, null, null, null, null];
   turn = 1; // represents player X
   winner = null;
-  
+
   render();
   // console.log('sanity check')
 }
 
 function render() {
-  
-  board.forEach((square, idx) => { 
+
+  board.forEach((square, idx) => {
     squareEls[idx].innerHTML = square;
-    
+
     if (square === null) {
       squareEls[idx].innerText = ''
     }
@@ -78,10 +78,10 @@ function render() {
     messageEl.innerText = `Your turn player ${turn === 1 ? 'X' : 'O'}`
   }
   else if (winner === 'T') {
-    messageEl.innerText =  `Tie game!`
+    messageEl.innerText = `Tie game!`
   }
   else {
-    messageEl.innerText =  `Game over! Congrats on the win, ${winner === 1 ? 'X' : 'O'}`
+    messageEl.innerText = `Game over! Congrats on the win, ${winner === 1 ? 'X' : 'O'}`
     surpriseMeow.style = '';
     meowAppears();
     confetti.start(2000);
@@ -91,7 +91,7 @@ function render() {
 function handleClick(event) {
   // console.log(event.target);
   let sqIdx = parseInt(event.target.id.replace('sq', ''));
-  
+
   board[sqIdx] = turn
   turn *= -1
 
@@ -105,8 +105,8 @@ function getWinner() {
   for (let i = 0; i < winningCombos.length; i++) {
     //total up the three board positions using the three indices in the current combo (convert to positive)
     if (Math.abs(board[winningCombos[i][0]] + board[winningCombos[i][1]] + board[winningCombos[i][2]]) === 3)
- 
-    return board[winningCombos[i][0]]
+
+      return board[winningCombos[i][0]]
   }
 
   if (board.includes(null)) {
@@ -118,5 +118,7 @@ function getWinner() {
 }
 
 function meowAppears() {
-  surpriseMeow.style = "position: absolute; width: 50%; height: 50%; left: 0px; bottom: 0px; border:0;";
+  surpriseMeow.style = "position: absolute; width: 50%; height: 50%; left: 0px; bottom: 0px; border: 0;";
+  meowSong.volume = .4;
+  meowSong.play()
 }

@@ -1,23 +1,21 @@
-
 body {
-    background-color: #264653;
-	/* Use a system font, if none are available use an available sans-sarif   font */
-	font-family: 'Indie Flower', cursive;
-  BlinkMacSystemFont, "Segoe UI",
-		Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  background-color: #264653;
+  /* Use a system font, if none are available use an available sans-sarif   font */
+  font-family: 'Indie Flower', cursive;
   color: #e76f51;
   text-shadow: 1px 1px #e9c46a;
-	margin: 0px;
+  margin: 0px;
   height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-body > h1 {
+
+body>h1 {
   font-size: 50px;
 }
 
-body > h2 {
+body>h2 {
   font-size: 42px;
 }
 
@@ -45,8 +43,6 @@ div {
 
 #reset-button {
   font-family: 'Indie Flower', cursive;
-  BlinkMacSystemFont, "Segoe UI",
-		Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   font-size: 22px;
   margin: 60px;
   color: #e76f51;
