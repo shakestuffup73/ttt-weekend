@@ -114,7 +114,7 @@ function meowAppears() {
   surpriseMeow.style = "position: absolute; width: 50%; height: 50%; left: 0px; bottom: 0px; border: 0;";
   if (typeof meowSong.loop === 'boolean') {
     meowSong.loop = true;
-    meowSong.volume = .4;
+    meowSong.volume = .2;
     meowSong.play()
   }
 }
@@ -123,5 +123,5 @@ function resetGame() {
   init();
   messageEl.innerText = 'Start Game, Player X'
   surpriseMeow.style = "position: absolute; width: 0%; height: 0%; border: 0;";
-  meowSong.volume = 0;
+  meowSong.pause();
 }
