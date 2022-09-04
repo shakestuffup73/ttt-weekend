@@ -12,7 +12,7 @@ const winningCombos = [
 ];
 
 const meowSong = new Audio("../audio/carriedaway.mp3");
-const colors = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"];
+// const colors = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"];
 
 
 /*---------------------------- Variables (state) ----------------------------*/
