@@ -20,7 +20,7 @@ let board, turn, winner
 
 /*------------------------ Cached Element References ------------------------*/
 
-const squareEls = document.querySelectorAll('section > div');
+const squareEls = document.querySelectorAll('.square');
 const messageEl = document.getElementById('message');
 const resetBtnEl = document.getElementById('reset-button');
 const surpriseMeow = document.getElementById('meow');
@@ -32,22 +32,15 @@ squareEls.forEach((square) => {
   square.addEventListener('click', handleClick);
 });
 
-resetBtnEl.addEventListener('click', (event) => {
-  init();
-  messageEl.innerText = 'Start Game, Player X'
-  surpriseMeow.style = "position: absolute; width: 0%; height: 0%; border: 0;";
-  meowSong.volume = 0;
-});
-
-
+resetBtnEl.addEventListener('click', resetGame);
 
 
 // /*-------------------------------- Functions --------------------------------*/
 
+messageEl.innerText = 'Start Game';
 
 init();
 
-messageEl.innerText = 'Start Game';
 
 function init() {
   board = [null, null, null, null, null, null, null, null, null];
@@ -124,4 +117,11 @@ function meowAppears() {
     meowSong.volume = .4;
     meowSong.play()
   }
+}
+
+function resetGame() {
+  init();
+  messageEl.innerText = 'Start Game, Player X'
+  surpriseMeow.style = "position: absolute; width: 0%; height: 0%; border: 0;";
+  meowSong.volume = 0;
 }
