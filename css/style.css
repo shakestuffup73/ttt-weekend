@@ -1,6 +1,6 @@
 body {
   background-color: #264653;
-  /* Use a system font, if none are available use an available sans-sarif   font */
+  transition: background-color 2s;
   font-family: 'Indie Flower', cursive;
   color: #e76f51;
   text-shadow: 1px 1px #e9c46a;

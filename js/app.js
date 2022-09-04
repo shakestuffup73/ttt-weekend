@@ -11,6 +11,8 @@ const winningCombos = [
   [6, 7, 8]
 ];
 
+const meowSong = new Audio("../audio/carriedaway.mp3");
+const colors = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"];
 
 
 /*---------------------------- Variables (state) ----------------------------*/
@@ -24,7 +26,6 @@ const squareEls = document.querySelectorAll('.square');
 const messageEl = document.getElementById('message');
 const resetBtnEl = document.getElementById('reset-button');
 const surpriseMeow = document.getElementById('meow');
-const meowSong = new Audio("../audio/carriedaway.mp3");
 
 // /*----------------------------- Event Listeners -----------------------------*/
 
@@ -78,6 +79,7 @@ function render() {
     surpriseMeow.style = '';
     meowAppears();
     confetti.start(2000);
+    // raveMode();
   }
 }
 
@@ -101,7 +103,6 @@ function getWinner() {
 
       return board[winningCombos[i][0]]
   }
-
   if (board.includes(null)) {
     return null;
   }
@@ -118,6 +119,14 @@ function meowAppears() {
     meowSong.play()
   }
 }
+
+
+// setTimeout(function raveMode() {
+//   for (let i = 0; i < colors.length; i++) {
+//     body.setAttribute.style.backgroundColor = colors[i];
+//   }
+// }, 1000)
+
 
 function resetGame() {
   init();
