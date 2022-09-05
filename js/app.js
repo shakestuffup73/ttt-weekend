@@ -12,7 +12,6 @@ const winningCombos = [
 ];
 
 const meowSong = new Audio("../audio/carriedaway.mp3");
-// const colors = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"];
 
 
 /*---------------------------- Variables (state) ----------------------------*/
@@ -80,7 +79,7 @@ function render() {
     surpriseMeow.style = '';
     meowAppears();
     confetti.start(2000);
-    // raveMode();
+    setInterval(raveMode, 7000)
   }
 }
 
@@ -121,15 +120,37 @@ function meowAppears() {
   }
 }
 
-// Loop through colors array to get div borders to change colors every 1 second // 
+function raveMode() {
+  let colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
 
-// function raveMode() {
-//   for (let i = 0; i < colors.length; i++) {
-//     div.style.borderColor = colors[i];
-//   }
-//   setTimeout(raveMode, 10000);
-//   }
-// }
+  setInterval(function () {
+    squareEls.setAttribute.style.border = ("border", `${colors[0]}`);
+  }, 1000)
+
+  setInterval(function () {
+    squareEls.setAttribute.style.border = (`${colors[1]}`);
+  }, 2000)
+  
+  setInterval(function () {
+    squareEls.setAttribute.style.border = (`${colors[2]}`);
+  }, 3000)
+  
+  setInterval(function () {
+    squareEls.setAttribute.style.border = (`${colors[3]}`);
+  }, 4000)
+  
+  setInterval(function() {
+    squareEls.setAttribute.style.border = (`${colors[4]}`);
+  }, 5000)
+
+  setInterval(function() {
+    squareEls.setAttribute.style.border = (`${colors[5]}`);
+  }, 6000)
+
+  setInterval(function() {
+   squareEls.setAttribute.style.border = (`${colors[6]}`);
+  }, 7000)
+}
 
 function resetGame() {
   init();
