@@ -26,6 +26,7 @@ const squareEls = document.querySelectorAll('.square');
 const messageEl = document.getElementById('message');
 const resetBtnEl = document.getElementById('reset-button');
 const surpriseMeow = document.getElementById('meow');
+// const raveBoard = document.getElementById('board')
 
 // /*----------------------------- Event Listeners -----------------------------*/
 
@@ -120,13 +121,15 @@ function meowAppears() {
   }
 }
 
+// Loop through colors array to get div borders to change colors every 1 second // 
 
-// setTimeout(function raveMode() {
+// function raveMode() {
 //   for (let i = 0; i < colors.length; i++) {
-//     body.setAttribute.style.backgroundColor = colors[i];
+//     div.style.borderColor = colors[i];
 //   }
-// }, 1000)
-
+//   setTimeout(raveMode, 10000);
+//   }
+// }
 
 function resetGame() {
   init();
