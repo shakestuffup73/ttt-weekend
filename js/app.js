@@ -79,7 +79,8 @@ function render() {
     surpriseMeow.style = '';
     meowAppears();
     confetti.start(2000);
-    setInterval(raveMode, 7000)
+    setTimeout(raveMode, 1);
+    clearTimeout(raveMode, 1);
   }
 }
 
@@ -121,35 +122,99 @@ function meowAppears() {
 }
 
 function raveMode() {
-  let colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
+
+  let colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet', '#2a9d8f'];
 
   setInterval(function () {
-    squareEls.setAttribute.style.border = ("border", `${colors[0]}`);
-  }, 1000)
+    squareEls[0].style.borderColor = colors[0]
+    squareEls[1].style.borderColor = colors[0];
+    squareEls[2].style.borderColor = colors[0];
+    squareEls[3].style.borderColor = colors[1];
+    squareEls[4].style.borderColor = colors[1];
+    squareEls[5].style.borderColor = colors[1];
+    squareEls[6].style.borderColor = colors[2];
+    squareEls[7].style.borderColor = colors[2];
+    squareEls[8].style.borderColor = colors[2];
+    console.log('this is time 1');
+  }, 0)
 
   setInterval(function () {
-    squareEls.setAttribute.style.border = (`${colors[1]}`);
-  }, 2000)
-  
-  setInterval(function () {
-    squareEls.setAttribute.style.border = (`${colors[2]}`);
-  }, 3000)
-  
-  setInterval(function () {
-    squareEls.setAttribute.style.border = (`${colors[3]}`);
-  }, 4000)
-  
-  setInterval(function() {
-    squareEls.setAttribute.style.border = (`${colors[4]}`);
-  }, 5000)
+    squareEls[0].style.borderColor = colors[3]
+    squareEls[1].style.borderColor = colors[3];
+    squareEls[2].style.borderColor = colors[3];
+    squareEls[3].style.borderColor = colors[4];
+    squareEls[4].style.borderColor = colors[4];
+    squareEls[5].style.borderColor = colors[4];
+    squareEls[6].style.borderColor = colors[5];
+    squareEls[7].style.borderColor = colors[5];
+    squareEls[8].style.borderColor = colors[5];
+    console.log('this is time 2');
+  }, 10)
 
-  setInterval(function() {
-    squareEls.setAttribute.style.border = (`${colors[5]}`);
-  }, 6000)
+  setInterval(function () {
+    squareEls[0].style.borderColor = colors[6]
+    squareEls[1].style.borderColor = colors[6];
+    squareEls[2].style.borderColor = colors[6];
+    squareEls[3].style.borderColor = colors[7];
+    squareEls[4].style.borderColor = colors[7];
+    squareEls[5].style.borderColor = colors[7];
+    squareEls[6].style.borderColor = colors[8];
+    squareEls[7].style.borderColor = colors[8];
+    squareEls[8].style.borderColor = colors[8];
+    console.log('this is time 3');
+  }, 10)
 
-  setInterval(function() {
-   squareEls.setAttribute.style.border = (`${colors[6]}`);
-  }, 7000)
+  setInterval(function () {
+    squareEls[0].style.borderColor = colors[0]
+    squareEls[1].style.borderColor = colors[0];
+    squareEls[2].style.borderColor = colors[0];
+    squareEls[3].style.borderColor = colors[1];
+    squareEls[4].style.borderColor = colors[1];
+    squareEls[5].style.borderColor = colors[1];
+    squareEls[6].style.borderColor = colors[2];
+    squareEls[7].style.borderColor = colors[2];
+    squareEls[8].style.borderColor = colors[2];
+    console.log('this is time 4');
+  }, 10)
+
+  setInterval(function () {
+    squareEls[0].style.borderColor = colors[3]
+    squareEls[1].style.borderColor = colors[3];
+    squareEls[2].style.borderColor = colors[3];
+    squareEls[3].style.borderColor = colors[4];
+    squareEls[4].style.borderColor = colors[4];
+    squareEls[5].style.borderColor = colors[4];
+    squareEls[6].style.borderColor = colors[5];
+    squareEls[7].style.borderColor = colors[5];
+    squareEls[8].style.borderColor = colors[5];
+    console.log('this is time 5');
+  }, 10)
+
+  setInterval(function () {
+    squareEls[0].style.borderColor = colors[6]
+    squareEls[1].style.borderColor = colors[6];
+    squareEls[2].style.borderColor = colors[6];
+    squareEls[3].style.borderColor = colors[7];
+    squareEls[4].style.borderColor = colors[7];
+    squareEls[5].style.borderColor = colors[7];
+    squareEls[6].style.borderColor = colors[8];
+    squareEls[7].style.borderColor = colors[8];
+    squareEls[8].style.borderColor = colors[8];
+    console.log('this is time 6');
+  }, 10)
+
+  setInterval(function () {
+    squareEls[0].style.borderColor = colors[1]
+    squareEls[1].style.borderColor = colors[2];
+    squareEls[2].style.borderColor = colors[3];
+    squareEls[3].style.borderColor = colors[4];
+    squareEls[4].style.borderColor = colors[5];
+    squareEls[5].style.borderColor = colors[6];
+    squareEls[6].style.borderColor = colors[7];
+    squareEls[7].style.borderColor = colors[8];
+    squareEls[8].style.borderColor = colors[0];
+    console.log('this is time 7');
+  }, 10)
 }
 
 function resetGame() {
@@ -158,3 +223,4 @@ function resetGame() {
   surpriseMeow.style = "position: absolute; width: 0%; height: 0%; border: 0;";
   meowSong.pause();
 }
+
