@@ -35,6 +35,10 @@ squareEls.forEach((square) => {
 
 resetBtnEl.addEventListener('click', resetGame);
 
+resetBtnEl.addEventListener('click', () => {
+  location.reload();
+});
+
 
 // /*-------------------------------- Functions --------------------------------*/
 
@@ -120,7 +124,7 @@ function meowAppears() {
 
 function raveMode() {
 
-  let colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet', '#2a9d8f'];
+  let colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
 
   setInterval(function () {
     squareEls[0].style.borderColor = colors[0];
