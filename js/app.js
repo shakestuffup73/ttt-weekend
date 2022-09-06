@@ -25,7 +25,6 @@ const squareEls = document.querySelectorAll('.square');
 const messageEl = document.getElementById('message');
 const resetBtnEl = document.getElementById('reset-button');
 const surpriseMeow = document.getElementById('meow');
-// const raveBoard = document.getElementById('board')
 
 // /*----------------------------- Event Listeners -----------------------------*/
 
@@ -86,7 +85,6 @@ function render() {
 }
 
 function handleClick(event) {
-  // console.log(event.target);
   let sqIdx = parseInt(event.target.id.replace('sq', ''));
 
   board[sqIdx] = turn
@@ -98,9 +96,9 @@ function handleClick(event) {
 }
 
 function getWinner() {
-  // loop through each of the winning combination arrays defined in the winningCombos array
+  
   for (let i = 0; i < winningCombos.length; i++) {
-    //total up the three board positions using the three indices in the current combo (convert to positive)
+
     if (Math.abs(board[winningCombos[i][0]] + board[winningCombos[i][1]] + board[winningCombos[i][2]]) === 3)
 
       return board[winningCombos[i][0]]
@@ -136,7 +134,7 @@ function raveMode() {
     squareEls[6].style.borderColor = colors[2];
     squareEls[7].style.borderColor = colors[2];
     squareEls[8].style.borderColor = colors[2];
-    console.log('this is time 1');
+
   }, 0)
 
   setInterval(function () {
@@ -149,7 +147,7 @@ function raveMode() {
     squareEls[6].style.borderColor = colors[5];
     squareEls[7].style.borderColor = colors[5];
     squareEls[8].style.borderColor = colors[5];
-    console.log('this is time 2');
+
   }, 10)
 
   setInterval(function () {
@@ -162,7 +160,7 @@ function raveMode() {
     squareEls[6].style.borderColor = colors[8];
     squareEls[7].style.borderColor = colors[8];
     squareEls[8].style.borderColor = colors[8];
-    console.log('this is time 3');
+
   }, 20)
 
   setInterval(function () {
@@ -175,7 +173,7 @@ function raveMode() {
     squareEls[6].style.borderColor = colors[2];
     squareEls[7].style.borderColor = colors[2];
     squareEls[8].style.borderColor = colors[2];
-    console.log('this is time 4');
+
   }, 30)
 
   setInterval(function () {
@@ -188,7 +186,7 @@ function raveMode() {
     squareEls[6].style.borderColor = colors[5];
     squareEls[7].style.borderColor = colors[5];
     squareEls[8].style.borderColor = colors[5];
-    console.log('this is time 5');
+
   }, 40)
 
   setInterval(function () {
@@ -201,7 +199,7 @@ function raveMode() {
     squareEls[6].style.borderColor = colors[8];
     squareEls[7].style.borderColor = colors[8];
     squareEls[8].style.borderColor = colors[8];
-    console.log('this is time 6');
+
   }, 50)
 
   setInterval(function () {
@@ -214,7 +212,7 @@ function raveMode() {
     squareEls[6].style.borderColor = colors[7];
     squareEls[7].style.borderColor = colors[8];
     squareEls[8].style.borderColor = colors[0];
-    console.log('this is time 7');
+
   }, 60)
 }
 
