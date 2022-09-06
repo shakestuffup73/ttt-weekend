@@ -42,14 +42,12 @@ messageEl.innerText = 'Start Game';
 
 init();
 
-
 function init() {
   board = [null, null, null, null, null, null, null, null, null];
-  turn = 1; // represents player X
+  turn = 1;
   winner = null;
 
   render();
-  // console.log('sanity check')
 }
 
 function render() {
@@ -79,8 +77,7 @@ function render() {
     surpriseMeow.style = '';
     meowAppears();
     confetti.start(2000);
-    setTimeout(raveMode, 1);
-    clearTimeout(raveMode, 1);
+    raveMode();
   }
 }
 
@@ -117,7 +114,7 @@ function meowAppears() {
   if (typeof meowSong.loop === 'boolean') {
     meowSong.loop = true;
     meowSong.volume = .2;
-    meowSong.play()
+    meowSong.play();
   }
 }
 
@@ -126,7 +123,7 @@ function raveMode() {
   let colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet', '#2a9d8f'];
 
   setInterval(function () {
-    squareEls[0].style.borderColor = colors[0]
+    squareEls[0].style.borderColor = colors[0];
     squareEls[1].style.borderColor = colors[0];
     squareEls[2].style.borderColor = colors[0];
     squareEls[3].style.borderColor = colors[1];
@@ -139,7 +136,7 @@ function raveMode() {
   }, 0)
 
   setInterval(function () {
-    squareEls[0].style.borderColor = colors[3]
+    squareEls[0].style.borderColor = colors[3];
     squareEls[1].style.borderColor = colors[3];
     squareEls[2].style.borderColor = colors[3];
     squareEls[3].style.borderColor = colors[4];
@@ -152,7 +149,7 @@ function raveMode() {
   }, 10)
 
   setInterval(function () {
-    squareEls[0].style.borderColor = colors[6]
+    squareEls[0].style.borderColor = colors[6];
     squareEls[1].style.borderColor = colors[6];
     squareEls[2].style.borderColor = colors[6];
     squareEls[3].style.borderColor = colors[7];
@@ -162,7 +159,7 @@ function raveMode() {
     squareEls[7].style.borderColor = colors[8];
     squareEls[8].style.borderColor = colors[8];
     console.log('this is time 3');
-  }, 10)
+  }, 20)
 
   setInterval(function () {
     squareEls[0].style.borderColor = colors[0]
@@ -175,7 +172,7 @@ function raveMode() {
     squareEls[7].style.borderColor = colors[2];
     squareEls[8].style.borderColor = colors[2];
     console.log('this is time 4');
-  }, 10)
+  }, 30)
 
   setInterval(function () {
     squareEls[0].style.borderColor = colors[3]
@@ -188,10 +185,10 @@ function raveMode() {
     squareEls[7].style.borderColor = colors[5];
     squareEls[8].style.borderColor = colors[5];
     console.log('this is time 5');
-  }, 10)
+  }, 40)
 
   setInterval(function () {
-    squareEls[0].style.borderColor = colors[6]
+    squareEls[0].style.borderColor = colors[6];
     squareEls[1].style.borderColor = colors[6];
     squareEls[2].style.borderColor = colors[6];
     squareEls[3].style.borderColor = colors[7];
@@ -201,7 +198,7 @@ function raveMode() {
     squareEls[7].style.borderColor = colors[8];
     squareEls[8].style.borderColor = colors[8];
     console.log('this is time 6');
-  }, 10)
+  }, 50)
 
   setInterval(function () {
     squareEls[0].style.borderColor = colors[1]
@@ -214,7 +211,7 @@ function raveMode() {
     squareEls[7].style.borderColor = colors[8];
     squareEls[8].style.borderColor = colors[0];
     console.log('this is time 7');
-  }, 10)
+  }, 60)
 }
 
 function resetGame() {
@@ -223,4 +220,3 @@ function resetGame() {
   surpriseMeow.style = "position: absolute; width: 0%; height: 0%; border: 0;";
   meowSong.pause();
 }
-
