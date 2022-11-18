@@ -96,7 +96,7 @@ function handleClick(event) {
 }
 
 function getWinner() {
-  
+
   for (let i = 0; i < winningCombos.length; i++) {
 
     if (Math.abs(board[winningCombos[i][0]] + board[winningCombos[i][1]] + board[winningCombos[i][2]]) === 3)
